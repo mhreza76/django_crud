@@ -15,15 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django_crud import views
+from studentApp import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    # path('admin/', admin.site.urls),
+    # path('about_us/', views.aboutUs),
+    # path('course/<course_id>', views.courseDetails),
+    # path('', views.homePage),
+    
     path('admin/', admin.site.urls),
-    path('about_us/', views.aboutUs),
-    path('course/<course_id>', views.courseDetails),
-    path('', views.homePage),
+    path('', views.index, name='index'),  
+    path('addnew',views.addnew, name='addnew'),  
+    path('edit/<int:id>', views.edit, name='edit'),  
+    path('update/<int:id>', views.update, name='update'),  
+    path('delete/<int:id>', views.destroy, name='destroy'), 
 
 ]
 
